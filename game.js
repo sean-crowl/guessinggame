@@ -1,5 +1,15 @@
-function numberGet() {
-    var a, b, c;
+var a;
+var b;
+var c;
+
+function setupGame() {
+    $("#guess1").val("");
+    $("#guess2").val("");
+    $("#guess3").val("");
+
+}
+
+    function numberGet() {
     a  = Math.floor(Math.random() * 10);
     b  = Math.floor(Math.random() * 10);
     while (b == a) {
@@ -14,7 +24,23 @@ function numberGet() {
 
 }
 
-numberGet();
+
+
+function handleGuess1() {
+    var guess1 = $("#guess1").val();
+
+    if (+guess1 == a) {
+        $("#guess1").css('background-color', 'green');
+
+
+    }
+}
+
+    function play1() {
+   // Hide and show the appropriate divs.
+    $("#startbtn").hide();
+    }
+
 
 function isNumberKey(evt)
        {
@@ -25,3 +51,13 @@ function isNumberKey(evt)
 
           return true;
        }
+
+$(function() {
+    // Wire up the event handlers.
+    $("#startbtn").on("click", play1);
+    $("#btnGuess").on("click", handleGuess1);
+
+    numberGet();
+
+
+});
