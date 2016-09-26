@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="game.js"></script>
+
+    <style>
+        body {
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>
+        <h1 style="color: white; text-align: center;">Enter Your Guess:</h1>
+    </div>
+    <div class="col-md-12" style="display: table; margin: auto;">
+    <input onkeypress="return isNumberKey(event)" class="col-md-2 col-sm-2 col-xs-2 numeric" type="text" maxlength="1" id="guess1" style="background-color: black; height: 350px; color: white; font-size: 300px; margin-right: 10px; margin-left: 300px;" />
+    <input class="col-md-2 col-sm-2 col-xs-2 numeric" type="text" maxlength="1" id="guess2" style="background-color: black; height: 350px; color: white; font-size: 300px; margin-right: 10px;" />
+    <input class="col-md-2 col-sm-2 col-xs-2 numeric" type="text" maxlength="1" id="guess3" style="background-color: black; height: 350px; color: white; font-size: 300px; margin-right: 10px;" />
+    </div>
+</body>
+
+</html>
