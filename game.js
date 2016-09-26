@@ -11,6 +11,12 @@ function setupGame() {
     $("#guess1").val("");
     $("#guess2").val("");
     $("#guess3").val("");
+    $("#wintext").hide();
+    $("#restartbtn").hide();
+    $("#startbtn").show();
+    $("#guess1").css('background-color', 'black');
+    $("#guess2").css('background-color', 'black');
+    $("#guess3").css('background-color', 'black');
     
 
 }
@@ -70,7 +76,9 @@ function handleGuess1() {
         $("#guess2").css('background-color', 'green');
         $("#guess3").css('background-color', 'green');
         $("#btnGuess").hide();
-        alert("You win!");
+        $("#wintext").show();
+        $("#restartbtn").show();
+        
     }
 
 }
@@ -102,6 +110,7 @@ $(function() {
     // Wire up the event handlers.
     $("#startbtn").on("click", play1);
     $("#btnGuess").on("click", handleGuess1);
+    $("#restartbtn").on("click", setupGame);
 
     setupGame();
     numberGet();
