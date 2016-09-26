@@ -3,9 +3,15 @@ var b;
 var c;
 
 function setupGame() {
+    $("#guess1").hide();
+    $("#guess2").hide();
+    $("#guess3").hide();
+    $("#guesstext").hide();
+    $("#btnGuess").hide();
     $("#guess1").val("");
     $("#guess2").val("");
     $("#guess3").val("");
+    
 
 }
 
@@ -28,17 +34,57 @@ function setupGame() {
 
 function handleGuess1() {
     var guess1 = $("#guess1").val();
+    var guess2 = $("#guess2").val();
+    var guess3 = $("#guess3").val();
 
     if (+guess1 == a) {
         $("#guess1").css('background-color', 'green');
-
-
     }
+    if (+guess1 != a) {
+        $("#guess1").css('background-color', 'red');
+    }
+    if (+guess1 != a && +guess1 == b || +guess1 == c) {
+        $("#guess1").css('background-color', 'yellow');
+    }
+    if (+guess2 == b) {
+        $("#guess2").css('background-color', 'green');
+    }
+    if (+guess2 != b) {
+        $("#guess2").css('background-color', 'red');
+    }
+    if (+guess2 != b && +guess2 == a || +guess2 == c) {
+        $("#guess2").css('background-color', 'yellow');
+    }
+    if (+guess3 == c) {
+        $("#guess3").css('background-color', 'green');
+    }
+    if (+guess3 != c) {
+        $("#guess3").css('background-color', 'red');
+    }
+    if (+guess3 != c && +guess3 == a || +guess3 == b) {
+        $("#guess3").css('background-color', 'yellow');
+    }
+    else if (+guess1 == a && +guess2 == b && +guess3 == c)
+    {
+        $("#guess1").css('background-color', 'green');
+        $("#guess2").css('background-color', 'green');
+        $("#guess3").css('background-color', 'green');
+        $("#btnGuess").hide();
+        alert("You win!");
+    }
+
 }
+
+
 
     function play1() {
    // Hide and show the appropriate divs.
     $("#startbtn").hide();
+    $("#guess1").show();
+    $("#guess2").show();
+    $("#guess3").show();
+    $("#guesstext").show();
+    $("#btnGuess").show();
     }
 
 
@@ -57,6 +103,7 @@ $(function() {
     $("#startbtn").on("click", play1);
     $("#btnGuess").on("click", handleGuess1);
 
+    setupGame();
     numberGet();
 
 
