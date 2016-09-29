@@ -81,7 +81,7 @@ document.getElementById("guessNum").innerHTML="Guesses Remaining: " +counter+ ""
     if (+guess3 != c && +guess3 == a || +guess3 == b) {
         $("#guess3").css('background-color', 'yellow');
     }
-    if (+guess1 == "" || +guess2 == "" || +guess3 == "") {
+    if (guess1 == "" || guess2 == "" || guess3 == "") {
         $("#guess1").css('background-color', 'black');
         $("#guess2").css('background-color', 'black');
         $("#guess3").css('background-color', 'black');
@@ -111,6 +111,7 @@ document.getElementById("guessNum").innerHTML="Guesses Remaining: " +counter+ ""
         counter = 10;
         
     }
+    console.log(guess1 + guess2 + guess3);
 
 }
 
