@@ -1,8 +1,10 @@
 var a;
 var b;
 var c;
+var counter = 10;
 
 function setupGame() {
+    document.getElementById("guessNum").innerHTML="Guesses Remaining: " +counter+ "";
     $("#guess1").hide();
     $("#guess2").hide();
     $("#guess3").hide();
@@ -17,8 +19,15 @@ function setupGame() {
     $("#guess1").css('background-color', 'black');
     $("#guess2").css('background-color', 'black');
     $("#guess3").css('background-color', 'black');
-    
+    $("#guessNum").hide();
+    $("#guessbox2").hide();
+    $("#guessNum").val(10);
+    $("#losetext").hide();
+    counter = 10;
+    numberGet();
 
+    
+    
 }
 
     function numberGet() {
@@ -39,6 +48,8 @@ function setupGame() {
 
 
 function handleGuess1() {
+    counter--;
+document.getElementById("guessNum").innerHTML="Guesses Remaining: " +counter+ "";
     var guess1 = $("#guess1").val();
     var guess2 = $("#guess2").val();
     var guess3 = $("#guess3").val();
@@ -70,6 +81,25 @@ function handleGuess1() {
     if (+guess3 != c && +guess3 == a || +guess3 == b) {
         $("#guess3").css('background-color', 'yellow');
     }
+    if (+guess1 == "" || +guess2 == "" || +guess3 == "") {
+        $("#guess1").css('background-color', 'black');
+        $("#guess2").css('background-color', 'black');
+        $("#guess3").css('background-color', 'black');
+        alert("You must enter a guess in each box! You have been penalized one try!")
+    }
+    if (+counter == 0) {
+        $("#guess1").css('background-color', 'red');
+        $("#guess2").css('background-color', 'red');
+        $("#guess3").css('background-color', 'red');
+        $("#guess1").val(a);
+        $("#guess2").val(b);
+        $("#guess3").val(c);
+        $("#btnGuess").hide();
+        $("#losetext").show();
+        $("#restartbtn").show();
+        $("guessbox2").hide();
+        counter = 10;
+    }
     else if (+guess1 == a && +guess2 == b && +guess3 == c)
     {
         $("#guess1").css('background-color', 'green');
@@ -78,6 +108,7 @@ function handleGuess1() {
         $("#btnGuess").hide();
         $("#wintext").show();
         $("#restartbtn").show();
+        counter = 10;
         
     }
 
@@ -93,6 +124,8 @@ function handleGuess1() {
     $("#guess3").show();
     $("#guesstext").show();
     $("#btnGuess").show();
+    $("#guessNum").show();
+    $("#guessbox2").show();
     }
 
 
@@ -112,8 +145,8 @@ $(function() {
     $("#btnGuess").on("click", handleGuess1);
     $("#restartbtn").on("click", setupGame);
 
+
     setupGame();
-    numberGet();
 
 
 });
